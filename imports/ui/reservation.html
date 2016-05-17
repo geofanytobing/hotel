@@ -1,0 +1,9 @@
+<template name="reservation">
+  <li class="reservation {{selectedClass}}">
+    <button class="deleteRe">&times;</button>
+    <button class="updateRe">Edit</button>
+    <button class="selectRe"> Select </button>
+    <span><strong>{{user}}</strong>{{title}}</span>
+    <ul> <li> {{datestart}} </li> <li> {{dateend}} </li> </ul>
+  </li>
+</template>

@@ -1,0 +1,190 @@
+.selected{
+    background-color: yellow;
+}
+
+.cover {
+  display: block;
+  margin-top: -91px;
+  position: relative;
+  width: 100%;
+  height: 500px;
+  color: #fff;
+  background-image: url(cover.jpg);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+  filter: brightness(50%);
+-webkit-filter: brightness(50%);
+-moz-filter: brightness(50%);
+-o-filter: brightness(50%);
+-ms-filter: brightness(50%);
+}
+
+.banner {
+  width: 100%;
+  text-align: center;
+  position: relative;
+}
+
+.scroll-to-next {
+  position: absolute;
+  bottom: 2em;
+  left: 50%;
+  transform: translateX( -50% );
+  color: #fff;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+}
+
+.rooms {
+  height: 100%;
+  text-align: center;
+
+}
+
+
+.room {
+display: block;
+height: 25%;
+position: relative;
+padding-left: 5%;
+padding-right: 5%;
+width: 90%
+z-index: 50;
+}
+
+.room:hover  .sm-single{
+  -webkit-box-shadow: inset 0px 0px 32px 1px rgba(0,0,0,1);
+  -moz-box-shadow: inset 0px 0px 32px 1px rgba(0,0,0,1);
+  box-shadow: inset 0px 0px 32px 1px rgba(0,0,0,1);
+}
+
+.room:hover .plus{
+  display: block;
+  position: absolute;
+}
+
+.plus {
+  left: 45%;
+  top: 40%;
+  display: none;
+  position: absolute;
+}
+
+.room-image {
+  max-width: 100%;
+  position: relative;
+ max-height: 100%;
+  filter: brightness(50%);
+-webkit-filter: brightness(50%);
+-moz-filter: brightness(50%);
+-o-filter: brightness(50%);
+-ms-filter: brightness(50%);
+}
+
+
+.sm-single{
+background-position: center;
+height: 100%;
+width: 100%;
+filter: brightness(50%);
+-webkit-filter: brightness(50%);
+-moz-filter: brightness(50%);
+-o-filter: brightness(50%);
+-ms-filter: brightness(50%);
+  background-image: url(sm-single.jpg);
+  background-size: cover;
+}
+
+.sm-single:hover{
+  box-shadow:inset 1px 1px 40px 0 rgba(0,0,0,.45);
+}
+
+.md-single{
+background-position: center;
+height: 100%;
+width: 100%;
+filter: brightness(50%);
+-webkit-filter: brightness(50%);
+-moz-filter: brightness(50%);
+-o-filter: brightness(50%);
+-ms-filter: brightness(50%);
+  background-image: url(md-single.jpg);
+  background-size: cover;
+}
+
+.md-single:hover{
+  box-shadow:inset 1px 1px 40px 0 rgba(0,0,0,.45);
+}
+
+.bg-single{
+background-position: center;
+height: 100%;
+width: 100%;
+filter: brightness(50%);
+-webkit-filter: brightness(50%);
+-moz-filter: brightness(50%);
+-o-filter: brightness(50%);
+-ms-filter: brightness(50%);
+  background-image: url(bg-single.jpg);
+  background-size: cover;
+}
+
+.bg-single:hover{
+  box-shadow:inset 1px 1px 40px 0 rgba(0,0,0,.45);
+}
+
+.double{
+background-position: center;
+height: 100%;
+width: 100%;
+filter: brightness(50%);
+-webkit-filter: brightness(50%);
+-moz-filter: brightness(50%);
+-o-filter: brightness(50%);
+-ms-filter: brightness(50%);
+  background-image: url(2.jpg);
+  background-size: cover;
+}
+
+.double:hover{
+  box-shadow:inset 1px 1px 40px 0 rgba(0,0,0,.45);
+}
+
+
+.room-text-wrapper {
+  position: absolute;
+  top: 75%;
+  width: 80%;
+  margin-left: 20%;
+  text-align: left;
+  margin-bottom: 20%;
+}
+
+.subtitle {
+ font-size: 10px;
+}
+.title {
+  font-size: 14px;
+}
+
+
+.hr {
+    max-width: 50px;
+    border-color: #f05f40;
+    border-width: 3px;
+}
+
+hr.light {
+    border-color: #fff;
+}
+
+
+.service-box {
+    margin: 50px auto 0;
+    max-width: 400px;
+}

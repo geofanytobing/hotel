@@ -1,0 +1,42 @@
+
+<body>
+
+
+    <header>
+      <h2> Booking App Test <h5> pick a date </h5> </h2>
+      <h4> The List </h4>
+      <ul>
+        <p>meteor add zimme:active-route instead of fuzzy navbar code.</p>
+        <li> the title needs to support i18n </li>
+        <li> Admin access- definitions- and social network login isn't configured</li>
+        <li> Computation for maximum extension of stay isn't implemented</li>
+        <li> Sorting by dates created, and order of start of reservations</li>
+        <li> Emailer for reservation booked, begun, or approaching max extension</li>        <li> Small bugs: extension date appearance, room gallery favicon overlays link to gallery, navbar collapse and afix async</li>
+        <li> Internalization, and checking </li>
+        <li> apparently arrays are indexed with id for when it get overwritten on insert </li>
+        <li> code hosted at github pub repository, and for my own purposes Id appreciate private subscription </li>
+        <li> switch over reservations list to subscribtions for minimongo </li>
+      </ul>
+
+
+      {{> loginButtons}}
+
+
+
+
+    </header>
+
+{{#if isInRole 'admin'}}
+    <h4>sortByDate:<button class="CR"> Created </button> <button class="ED"> End </button> <button class="SD"> Start </button> Find User: <input type="text" name="findUser" placeholder="Search by username" /> <button class="delFind">&times;</button></h4>
+{{/if}}
+    <ul>
+      {{#each reservations}}
+        {{> reservation}}
+      {{/each}}
+    </ul>
+
+  {{> calendar}}
+
+  {{>roomsList}}
+  <p> Notice: deleting a room will delete corresponding reservations </p>
+</body>

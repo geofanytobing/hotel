@@ -1,0 +1,17 @@
+<template name="roomsList">
+  {{#if isInRole 'admin'}}
+  <form class="new-room">
+    <h6> Will appear to clients in order of creation </h6>
+    <input type="text" name="title" placeholder="Title/type of the rooms" />
+    <input type="text" name="ru" placeholder="RU translation thereof" />
+    <input type="text" name="kz" placeholder="KZ translation" />
+    <input type="number" name="amount" placeholder="Amount of the rooms" />
+    <input type="submit" id="add-room"/>
+  </form>
+  {{/if}}
+<ul>
+  {{#each rooms}}
+    {{> room}}
+  {{/each}}
+</ul>
+</template>
