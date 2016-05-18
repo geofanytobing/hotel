@@ -8,7 +8,8 @@ import './room.js'
 import { Rooms } from '../api/rooms.js';
 
 Template.roomsList.onCreated(function roomsListOnCreated() {
-  Meteor.subscribe('rooms');
+  TAPi18n.subscribe('rooms');
+  Meteor.subscribe('query');
 
 });
 
