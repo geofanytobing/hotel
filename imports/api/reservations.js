@@ -34,11 +34,14 @@ console.log("MethodsLog//", x, room);
   },
 
   'reservations.insert'(reservation) {
-//look at an indexes of dates and make conclusions by comparing against them
-//in order to run changes store previous value from user, findone, update
+
+
 
     Reservations.insert(reservation) //maybe session get datestart
   //    timestamp:date
+  if (Meteor.isServer) {
+    //run mailer
+  }
   },
   'reservations.update'(reservationId, dateend, datestart) {
   var id = reservation._id

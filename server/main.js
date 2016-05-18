@@ -8,6 +8,31 @@ import { Roles } from 'meteor/alanning:roles';
 Meteor.startup(() => {
   // code to run on server at startup
   // run populate database
+
+//https://prerender.io/
+//https://atmospherejs.com/dfischer/prerenderio
+  prerenderio.set('prerenderServiceUrl', 'http://localhost:3000/'));
+  prerenderio.set('prerenderToken', 'YOUR_TOKEN'));
+
+///////////////////////
+//process.env.MAIL_URL = "smtp://postmaster%40<your-mailgun-address>.mailgun.org:password@smtp.mailgun.org:587";
+///////////////////////
+
+SSR.compileTemplate( 'htmlEmail', Assets.getText( 'html-email.html' ) );
+
+var emailData = {
+  name: "Doug Funny",
+  favoriteRestaurant: "Honker Burger",
+  bestFriend: "Skeeter Valentine"
+};
+
+Email.send({
+  to: "to.address@email.com",
+  from: "from.address@email.com",
+  subject: "Example Email",
+  html: SSR.render( 'htmlEmail', emailData )
+});
+
 if (Meteor.users.find().fetch().length === 0) {
     console.log("user created");
 var _id =   Accounts.createUser({
