@@ -21,8 +21,8 @@ Template.room.events({
       datestart: Session.get('StartDate'),
       dateend: Session.get('EndDate'),}
     console.log(reservation, this._id,Meteor.user())
-    Meteor.call('reservations.insert', reservation);
-    } else {alert("room at max capacity")}
+    Meteor.call('reservations.insert', reservation, Meteor.user().emails[0].address);
+  } else {alert("room at max capacity")}
   },
   'click .delete'() {
     Meteor.call('rooms.remove', this._id);

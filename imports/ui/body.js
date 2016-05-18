@@ -28,6 +28,8 @@ Template.body.helpers({
         sortArr[currentPage+'.'+timePeriod] = "asc";
         return EmployeeCollection.find({}, sortArr).fetch();
         */
+
+  //https://atmospherejs.com/shira/grid-view
   reservations () {
     var boo = Template.instance().order.get()
     var foo = Template.instance().posts.get()
