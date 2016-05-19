@@ -9,7 +9,8 @@ import './calendar.html';
 // clear btn for admin all view
 
 
-
+//https://github.com/rajit/bootstrap3-datepicker/issues/8
+//https://github.com/rajit/bootstrap3-datepicker/issues/17
 Template.calendar.rendered=function() {
 	$(/*'.range'*/ '#datepicker').datepicker({
 		//https://github.com/eternicode/bootstrap-datepicker/issues/580
