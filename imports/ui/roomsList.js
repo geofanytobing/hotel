@@ -25,7 +25,7 @@ Template.roomsList.events({
     var rField = event.target.ru;
     var kz = event.target.kz.value;
     var kField = event.target.kz;
-    Meteor.call('rooms.insert', title, amount, ru, kz);
+    Meteor.call('rooms.insert', title, amount, ru, kz, Meteor.user());
 
     //clearsfields for title/amount
     tField.value = '';

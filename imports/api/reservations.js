@@ -35,7 +35,10 @@ console.log("MethodsLog//", x, room);
 
   'reservations.insert'(reservation) {
 
-
+    if (! this.userId) {
+      throw new Meteor.Error('not-authorized');
+      console.log("fail")
+    }
 
     Reservations.insert(reservation) //maybe session get datestart
   //    timestamp:date

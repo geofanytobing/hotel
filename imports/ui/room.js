@@ -29,7 +29,7 @@ Template.room.events({
   } else {alert("room at max capacity")}
   },
   'click .delete'() {
-    Meteor.call('rooms.remove', this._id);
+    Meteor.call('rooms.remove', this._id, Meteor.user());
   },
 });
 

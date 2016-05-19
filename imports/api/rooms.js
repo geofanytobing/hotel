@@ -28,13 +28,17 @@ Meteor.publish('query', function () {
 
 
 Meteor.methods({
-  'rooms.insert'(name, number, ruTi, kzTi) {
+  'rooms.insert'(name, number, ruTi, kzTi, user) {
+    if (Roles.userIsInRole(user, ['admin'])) {
+      return  Rooms.insert({
+                title: name,
+                amount: number,
+                i18n: {ru: {title: ruTi}, kz: {title: kzTi}}
+              });
+    }
 
-  Rooms.insert({
-      title: name,
-      amount: number,
-      i18n: {ru: {title: ruTi}, kz: {title: kzTi}}
-    })
+
+
   },
 /*
 id = Inventors.insertTranslations({born: 1856, name: "Nikola Tesla"}, {
@@ -51,8 +55,10 @@ Inventors.updateTranslations(id, {
 })*/
 
 
-  'rooms.remove'(roomId) {
-
-    Rooms.remove(roomId);
+  'rooms.remove'(roomId, user) {
+        if (Roles.userIsInRole(user, ['admin'])) {
+          const room = Rooms.findOne(roomId);
+          return Rooms.remove(room);
+        }
   },
 });

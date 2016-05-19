@@ -1,28 +1,64 @@
 
-<body>
+<body id="page-top" data-spy="scroll">
+  <link rel="stylesheet" href="//blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
+
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet/less" type="text/css" href="grayscale.less" />
 
 
-      <h2> Booking App Test <h5> pick a date </h5> </h2>
-      <h4> The List </h4>
-      <ul>
-        <p>meteor add zimme:active-route instead of fuzzy navbar code.</p>
-        <li> title i18n support is shoddy </li>
-        <li> Admin access- definitions</li>
-        <li> Computation for maximum extension of stay isn't implemented</li>
-        <li> Sorting by dates created, and order of start of reservations</li>
-        <li> Emailer for reservation booked, begun, or approaching max extension</li>
-        <li> Small bugs: extension date appearance, room gallery favicon overlays link to gallery, navbar collapse and afix async</li>
-        <li> checking calendar </li>
-        <li> code hosted at github pub repository, and for my own purposes Id appreciate private subscription </li>
-      </ul>
+  <div class="greetings">
+  <img class="header-img" src="jas.jpg" width=100%>
 
-{{> i18n_buttons}}
-    <p>
-    {{> loginButtons}}
-</p>
+  {{> navbar}}
+
+  <div class="cover"></div>
+  </div>
+
+  {{> about}}
+
+  {{> rooms}}
+
+  <!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body -->
+  <div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls" data-use-bootstrap-modal="false">
+      <!-- The container for the modal slides -->
+      <div class="slides"></div>
+      <!-- Controls for the borderless lightbox -->
+      <h3 class="title"></h3>
+      <a class="prev">‹</a>
+      <a class="next">›</a>
+      <a class="close">×</a>
+      <a class="play-pause"></a>
+      <ol class="indicator"></ol>
+      <!-- The modal dialog, which will be used to wrap the lightbox content -->
+      <div class="modal fade">
+          <div class="modal-dialog">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <button type="button" class="close" aria-hidden="true">&times;</button>
+                      <h4 class="modal-title"></h4>
+                  </div>
+                  <div class="modal-body next"></div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-default pull-left prev">
+                          <i class="glyphicon glyphicon-chevron-left"></i>
+                          Previous
+                      </button>
+                      <button type="button" class="btn btn-primary next">
+                          Next
+                          <i class="glyphicon glyphicon-chevron-right"></i>
+                      </button>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
 
 
-    <h4>sortByDate:<button class="CR"> Created </button> <button class="ED"> End </button> <button class="SD"> Start </button> Find User: <input type="text" name="findUser" placeholder="Search by username" /> <button class="delFind">&times;</button></h4>
+{{#if isInRole 'admin'}}
+    <h4>sortByDate:<button class="CR"> Created </button> <button class="ED"> End </button> <button class="SD"> Start </button> <!-- Find User: <input type="text" name="findUser" placeholder="Search by username" /> <button class="delFind">&times;</button> --></h4>
+{{/if}}
+
+<section id="booking">
     {{#each reservations}}
       {{> reservation}}
     {{/each}}
@@ -30,5 +66,24 @@
   {{> calendar}}
 
   {{>roomsList}}
-  <p> Notice: deleting a room will delete corresponding reservations </p>
+</section>
+
+<section id="contact">
+<p>Email: Jasmin.hotel2015@gmail.com</p>
+<p>Phone #: 8(7172) 514010</p>
+<p>Address: Astana, Carayshik 36</p>
+
+<iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2503.709737553968!2d71.4340250491739!3d51.13226185659499!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0000000000000000%3A0x2cf104e8c28e75fe!2z0JbQsNGB0LzQuNC9!5e0!3m2!1sen!2sus!4v1459337421254" output=embed></iframe>
+<br />
+<small>
+    <a href="https://www.google.com/maps/place/%D0%96%D0%B0%D1%81%D0%BC%D0%B8%D0%BD/@51.1322619,71.434025,17z/data=!4m5!1m2!2m1!1sjasmin+hotel+astana!3m1!1s0x0000000000000000:0x2cf104e8c28e75fe?hl=en"></a>
+</small>
+
+</section>
+
+<!--
+    <script src="//blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+-->
 </body>

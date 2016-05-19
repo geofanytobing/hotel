@@ -1,9 +1,9 @@
 <template name="room">
 <li>
-  <span class="text"><strong>{{title}}</strong> - Total: {{amount}} Available: {{counter}}</span>
+  <span class="text"><strong>{{title}}</strong> - {{_ "amount"}}: {{amount}} {{_ "available"}}: {{counter}}</span>
   <p>
-  <button class="delete">&times;</button>
-  <button class="make"> Make reservation </button>
+  {{#if isInRole 'admin'}} <button class="delete">&times;</button> {{/if}}
+  <button class="make"> {{_ "reserve"}} </button>
 </p>
 </li>
 </template>

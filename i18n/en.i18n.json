@@ -1,20 +1,36 @@
 {
-  "main": {
-    "about": "Hotel-butik, at ur service...",
-    "services": {
-      "coomunicable": "Communicable",
-      "coomunicable.desc": "Our staff speaks English, Russian, and Kazakh languages."
-    }
+    "aboutParagraph": "asdfasdf",
+    "communicable": "Communicable",
+    "communicabledesc": "Our staff speaks English, Russian, and Kazakh languages.",
+    "safe": "Safe",
+    "safedesc": "We have safety deposit boxes.",
+    "parking": "Free Parking",
+    "parkingdesc": "Our hotel has public parking area free of charge.",
+    "market": "Mini-market",
+    "marketdesc": "There's also free tea and coffee served.",
+    "smoking": "Non-Smoking",
+    "smokingdesc": "There's a designated smoking area indoors.",
+    "tv": "Private TV",
+    "tvdesc": "Cable channels are included on the flatscreens.",
+    "wifi": "Free Wi-Fi",
+    "wifidesc": "Our WiFi reaches all areas of hotel.",
+    "breakfast": "Free Breakfast",
+    "breakfastdesc": "Luxurious breakfasts are served into the rooms.",
 
-
-
-
-  },
-  "navbar":{
     "about": "About",
     "gallery": "Gallery",
     "booking": "Booking",
     "services": "Services",
-    "contact": "Contact"
-  }
+    "contact": "Contact",
+
+    "sroom": "Small Single-Room",
+    "room": "Single-Room",
+    "sbroom": "Big Single-Room",
+    "droom": "Double-Room",
+
+    "amount": "Amount",
+    "available": "Available",
+    "reserve": "Book"
+
+
 }

@@ -1,9 +1,20 @@
 <template name="reservation">
   <li class="reservation {{selectedClass}}">
-    <button class="deleteRe">&times;</button>
-    <button class="updateRe">Edit</button>
-    <button class="selectRe"> Select </button>
-    <span><strong>{{user}}</strong>{{title}}</span>
-    <ul> <li> {{datestart}} </li> <li> {{dateend}} </li> </ul>
+    <div class="row">
+    <div class="col-sm-6 text-center">
+    {{title}} </div>
+    <div class="col-sm-2">
+    <button class="deleteRe">&times;</button> </div>
+    <div class="col-sm-2">
+    <button class="updateRe">Edit</button> </div>
+    <div class="col-sm-2">
+    <button class="selectRe"> Select </button> </div>
+    <div class="col-lg-8">
+    {{datestart}} </div>
+    <div class="col-lg-8">
+    {{dateend}} </div>
+    </div>
+    <div class="col-lg-8">
+    {{user}} </div>
   </li>
 </template>

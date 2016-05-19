@@ -11,7 +11,10 @@ import './calendar.html';
 
 
 Template.calendar.rendered=function() {
-	$('#datepicker').datepicker({
+	$(/*'.range'*/ '#datepicker').datepicker({
+		//https://github.com/eternicode/bootstrap-datepicker/issues/580
+		// in css .range div display as inline block
+	//	inputs: $('.range-start, .range-end')
   todayBtn: "linked",
 clearBtn: true,
 todayHighlight: true,

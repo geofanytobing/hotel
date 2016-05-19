@@ -10,6 +10,10 @@ import './calendar.js';
 import './roomsList.js';
 
 
+import './rooms.html';
+import './about.html';
+import './navbar.js';
+
 Template.body.onCreated(function () {
   Meteor.subscribe('reservations');
 
