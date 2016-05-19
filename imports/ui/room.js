@@ -14,14 +14,18 @@ Template.room.events({
   'click .make'(event, template) {
     event.preventDefault();
     if ( Session.get(this._id) > 0) {
+      //https://github.com/mizzao/meteor-timesync
+      //https://forums.meteor.com/t/createdat-and-documents/6627/14
     var reservation = {
       title: this.title,
       owner: Meteor.userId(),
       user: Meteor.user().username,
       datestart: Session.get('StartDate'),
-      dateend: Session.get('EndDate'),}
+      dateend: Session.get('EndDate'),
+      timestamp: new Date(),
+    }
     console.log(reservation, this._id,Meteor.user())
-    Meteor.call('reservations.insert', reservation, Meteor.user().emails[0].address);
+    Meteor.call('reservations.insert', reservation,/* for mail Meteor.user().emails[0].address */);
   } else {alert("room at max capacity")}
   },
   'click .delete'() {

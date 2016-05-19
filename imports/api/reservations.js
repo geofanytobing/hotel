@@ -9,10 +9,10 @@ export const Reservations = new Mongo.Collection('reservations');
 if (Meteor.isServer) {
   // This code only runs on the server
   // Only publish tasks that are public or belong to the current user
-  Meteor.publish('reservations', function (field) {
+  Meteor.publish('reservations', function () {
     let isAdmin = Roles.userIsInRole( this.userId, 'admin' );
     if ( isAdmin ) {
-    return Reservations.find({}, {field})
+    return Reservations.find({}, {})
     } else {
       return Reservations.find({ owner: this.userId });
     }
@@ -39,9 +39,7 @@ console.log("MethodsLog//", x, room);
 
     Reservations.insert(reservation) //maybe session get datestart
   //    timestamp:date
-  if (Meteor.isServer) {
-    //run mailer
-  }
+
   },
   'reservations.update'(reservationId, dateend, datestart) {
   var id = reservation._id

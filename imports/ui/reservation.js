@@ -8,7 +8,7 @@ import { Reservations } from '../api/reservations.js';
 import './reservation.html';
 
 Template.reservation.onCreated(function reservationOnCreated() {
-  Meteor.subscribe('query');
+  Meteor.subscribe('reservations');
 //  this.counter = new ReactiveVar(0);
 });
 
@@ -49,7 +49,7 @@ Template.reservation.events({
     var reservationId = this._id;
     var datestart = Session.get('StartDate');
     var dateend = Session.get('EndDate');
-
+    //timestamp update
     if (Session.get(this.title) > 0) {
       Meteor.call('reservations.update', reservationId, dateend, datestart)
     } else {alert("room at max capacity")}

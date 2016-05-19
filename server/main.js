@@ -11,8 +11,9 @@ Meteor.startup(() => {
 
 //https://prerender.io/
 //https://atmospherejs.com/dfischer/prerenderio
-  prerenderio.set('prerenderServiceUrl', 'http://localhost:3000/'));
-  prerenderio.set('prerenderToken', 'YOUR_TOKEN'));
+//https://books.google.kz/books?id=6_l_CwAAQBAJ&pg=PA86&lpg=PA86&dq=prerender+io+meteor&source=bl&ots=4e6CM_rPkw&sig=ef4da4jL8g4veIfJyfpJodL358s&hl=en&sa=X&redir_esc=y#v=onepage&q=prerender%20io%20meteor&f=false
+//  prerenderio.set('prerenderServiceUrl', 'http://localhost:3000/'));
+//  prerenderio.set('prerenderToken', 'YOUR_TOKEN'));
 
 ///////////////////////
 //process.env.MAIL_URL = "smtp://postmaster%40<your-mailgun-address>.mailgun.org:password@smtp.mailgun.org:587";

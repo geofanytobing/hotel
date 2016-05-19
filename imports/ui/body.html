@@ -23,7 +23,9 @@
 
 
     <h4>sortByDate:<button class="CR"> Created </button> <button class="ED"> End </button> <button class="SD"> Start </button> Find User: <input type="text" name="findUser" placeholder="Search by username" /> <button class="delFind">&times;</button></h4>
-
+    {{#each reservations}}
+      {{> reservation}}
+    {{/each}}
 
   {{> calendar}}
 
