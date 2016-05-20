@@ -1,0 +1,14 @@
+
+<template name="i18nSelector">
+  <span class="tap-i18n-select">
+    {{#if i18n_enabled}}
+      <select class="form-control tap-i18n-size btn btn-default btn-xs">
+        {{#each i18n_sortedLanguages}}
+          <option value="{{tag}}" selected={{i18n_isCurrentLanguage tag}}>{{name}}</option>
+        {{/each}}
+      </select>
+    {{else}}
+      <span class="i18n-not-found">No i18n files found</span>
+    {{/if}}
+  </span>
+</template>

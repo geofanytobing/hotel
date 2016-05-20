@@ -1,6 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
-
+import { Moment } from "meteor/momentjs:moment";
 import { Rooms } from '../api/rooms.js';
 import { Reservations } from '../api/reservations.js';
 
@@ -19,6 +19,14 @@ Template.reservation.helpers({
       if(playerId == selectedPlayer){
           return "selected"
 }},
+startdate () {
+  var a = moment(new Date(this.datestart)).format("DD-MMM-YY")
+  return a
+},
+enddate () {
+  var a = moment(new Date(this.dateend)).format("DD-MMM-YY")
+  return a
+}
 });
 
 /*
@@ -47,6 +55,7 @@ Template.reservation.events({
   'click .updateRe'(event, template) {
     event.preventDefault();
     var reservationId = this._id;
+    Session.set('Reservation', reservationId);
     var datestart = Session.get('StartDate');
     var dateend = Session.get('EndDate');
     //timestamp update

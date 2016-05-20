@@ -18,6 +18,8 @@ ecmascript              # Enable ECMAScript2015+ syntax in app code
 
 momentjs:moment
 rajit:bootstrap3-datepicker
+rajit:bootstrap3-datepicker-ru
+rajit:bootstrap3-datepicker-kk
 session
 insecure
 less
@@ -34,3 +36,4 @@ accounts-google
 mrt:accounts-vk
 accounts-ui
 accounts-password
+autopublish

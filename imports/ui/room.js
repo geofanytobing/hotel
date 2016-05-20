@@ -7,19 +7,21 @@ import './room.html';
 
 Template.room.onCreated(function () {
 //  this.subscribe('query');
-
+this.subscribe('reservations')
+this.subscribe('rooms')
 });
 //http://guide.meteor.com/data-loading.html#pagination
 Template.room.events({
   'click .make'(event, template) {
     event.preventDefault();
-    if ( Session.get(this._id) > 0) {
+    if ( Session.get(this.title) > 0) {
       //https://github.com/mizzao/meteor-timesync
       //https://forums.meteor.com/t/createdat-and-documents/6627/14
     var reservation = {
       title: this.title,
       owner: Meteor.userId(),
-      user: Meteor.user().username,
+      username: Meteor.user().username,
+      user: Meteor.user(),
       datestart: Session.get('StartDate'),
       dateend: Session.get('EndDate'),
       timestamp: new Date(),
@@ -35,15 +37,15 @@ Template.room.events({
 
 Template.room.helpers({
   counter() {
-    var id = this._id
-    Meteor.call('rooms.grid', this, Session.get("EndDate"), Session.get("StartDate"), function (error, result) {
+    var title = this.title
+    var enddate = Session.get('EndDate')
+    Meteor.call('rooms.grid', this, enddate, Session.get("StartDate"), function (error, result) {
       //Template.instance().feckinHell.set(result.reservations.length)
-      console.log("shitForReal", id, result)
-      Session.set(id, result)
+      Session.set(title, result)
       //project or aggregat the array
       //results.reservations.length
     })
-    return Session.get(id)
+    return Session.get(title)
   },
     //Session variables from calendar are global
     //find array of availability

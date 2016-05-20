@@ -1,6 +1,6 @@
 
 import "./navbar.html";
-
+import "./i18nSelector.js";
 
 
     Template.navbar.onRendered(function() {

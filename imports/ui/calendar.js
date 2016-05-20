@@ -11,21 +11,53 @@ import './calendar.html';
 
 //https://github.com/rajit/bootstrap3-datepicker/issues/8
 //https://github.com/rajit/bootstrap3-datepicker/issues/17
+/*'.range'*/
+	//https://github.com/eternicode/bootstrap-datepicker/issues/580
+	// in css .range div display as inline block
+//	inputs: $('.range-start, .range-end')
 Template.calendar.rendered=function() {
-	$(/*'.range'*/ '#datepicker').datepicker({
-		//https://github.com/eternicode/bootstrap-datepicker/issues/580
-		// in css .range div display as inline block
-	//	inputs: $('.range-start, .range-end')
+	$( '#datepicker').datepicker({
   todayBtn: "linked",
+	language: Session.get('language'),
 clearBtn: true,
 todayHighlight: true,
 toggleActive: true,});
 $('#datestart').datepicker('setDate', new Date())
 $('#dateend').datepicker('setDate', new Date())
-
-
 };
 
+ Tracker.autorun(function () {
+	 //basic addon to force rerender/new language render
+$( '#datepicker').datepicker('remove')
+	 $( '#datepicker').datepicker({
+	  todayBtn: "linked",
+	  language: Session.get('language'),
+	 clearBtn: true,
+	 todayHighlight: true,
+	 toggleActive: true,})
+/*	 if (Session.equals('language') == "ru") {
+	 $( '#datepicker').datepicker({
+		todayBtn: "linked",
+		language: 'ru',
+	clearBtn: true,
+	todayHighlight: true,
+	toggleActive: true,})
+} else if (Session.equals('language') == "kk") {
+	$( '#datepicker').datepicker({
+	 todayBtn: "linked",
+	 language: 'kk',
+ clearBtn: true,
+ todayHighlight: true,
+ toggleActive: true,})
+} else {
+	$( '#datepicker').datepicker({
+	 todayBtn: "linked",
+	 language: 'en',
+ clearBtn: true,
+ todayHighlight: true,
+ toggleActive: true,})
+}*/
+})
 //clearDates button for admin view
 Template.calendar.events ({
   'change #datestart': function () {

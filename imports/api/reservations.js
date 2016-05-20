@@ -26,9 +26,9 @@ Meteor.methods({
   //  var bull = Session.get("StartDate");
     // roomsId,
     // room {title, amount, reservations [{id, dateend, datestart}]}
-
+var name = room.title
     //var x = Rooms.find({$and: [{'reservations.dateend': {$gte: bull}}, {'reservations.datestart': {$lte: foo}}]}).fetch();
-var x = Reservations.find({title: room.title}, {dateend: {$gte: bull}}, {datestart: {$lte: foo}}).count();
+var x = Reservations.find({title: name, dateend: {$gte: bull}, datestart: {$lte: foo}}).count();
 console.log("MethodsLog//", x, room);
     return room.amount - x
   },
