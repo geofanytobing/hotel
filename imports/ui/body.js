@@ -46,7 +46,12 @@ Template.body.helpers({
     });
     return Template.instance().posts.get()
     //Reservations.find({}, { sort: {foo} }); */
-    return Reservations.find({}, { sort: sort_order})
+    var bull = Session.get('StartDate')
+    var foo = Session.get("EndDate")
+    if (bull == null || foo == null) {
+    return Reservations.find( {} , {sort: sort_order })
+  } else if (Reservations.find().count() !== 0) {return Reservations.find({dateend: {$gte: bull}, datestart: {$lte: foo}}, {sort: sort_order })}
+  else {return null/*"Your booking details and controls with hotel details will be mailed to you upon reservation"*/}
   },
 });
 

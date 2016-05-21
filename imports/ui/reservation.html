@@ -1,15 +1,26 @@
 <template name="reservation">
+
   <li class="reservation {{selectedClass}}">
     <div class="row">
-    {{title}} </div>
+      <div class="col-sm-3">
     <div class="btn-group" role="group">
     <button role="button" class="deleteRe btn btn-danger">&times;</button>
     <button role="button" class="updateRe btn btn-info">Edit</button>
     <button role="button" class="selectRe btn btn-success"> Select </button>
   </div>
-    In:{{startdate}}
-    Out:{{enddate}}
-    User:{{username}}
-    Type:{{title}}
+</div>
+<div class="col-sm-2">
+  <b>  In:</b> {{startdate}}
+</div>
+<div class="col-sm-2">
+  <b>  Out:</b> {{enddate}}
+</div>
+<div class="col-sm-3">
+  <b>  User:</b> {{username}}
+</div>
+<div class="col-sm-2">
+    <b>  Type:</b> {{title}}
+</div>
+</div>
   </li>
 </template>

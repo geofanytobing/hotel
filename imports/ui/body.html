@@ -54,21 +54,30 @@
   </div>
 
 
-{{#if isInRole 'admin'}}
-
-    <h4>sortByDate:</h4>
-   <div class="btn-group" role="group">
-    <button type="button" class="CR btn btn-primary"> Created </button>
-    <button type="button" class="ED btn btn-primary"> End </button>
-    <button type="button" class="SD btn btn-primary"> Start </button> <!-- Find User: <input type="text" name="findUser" placeholder="Search by username" /> <button class="delFind">&times;</button> -->
-</div>
-{{/if}}
 <section id="booking">
+  <h4>{{_ "calendarTitle"}}</h4>
+  <div class="row">
+    <div class="col-md-6">
+      {{#if isInRole 'admin'}}
+      <span>    <h4>sortByDate:</h4>
+         <div class="btn-group" role="group">
+          <button type="button" class="CR btn btn-primary"> Created </button>
+          <button type="button" class="ED btn btn-primary"> End </button>
+          <button type="button" class="SD btn btn-primary"> Start </button> <!-- Find User: <input type="text" name="findUser" placeholder="Search by username" /> <button class="delFind">&times;</button> -->
+      </div> </span>
+      {{/if}}
+      {{> calendar}}
+    </div>
+
+    <div class="col-md-6">
+    <div class="title"> Your Reservations </div>
+      <hr class="light">
     {{#each reservations}}
       {{> reservation}}
     {{/each}}
+    </div>
+  </div>
 
-  {{> calendar}}
 
   {{>roomsList}}
 </section>

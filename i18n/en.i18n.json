@@ -28,9 +28,11 @@
     "sbroom": "Big Single-Room",
     "droom": "Double-Room",
 
+    "calendarTitle": "Select desired booking dates",
     "amount": "Amount",
     "available": "Available",
     "reserve": "Book"
+
 
 
 }
