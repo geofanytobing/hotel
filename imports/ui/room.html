@@ -1,5 +1,6 @@
 <template name="room">
 <li>
+  <div id='alert' style='display:none;'></div>
   <span class="text"><strong>{{title}}</strong> - {{_ "amount"}}: {{amount}} {{_ "available"}}: {{counter}}</span>
   <p>
   {{#if isInRole 'admin'}} <button class="delete">&times;</button> {{/if}}

@@ -14,27 +14,26 @@ this.subscribe('rooms')
 Template.room.events({
   'click .make'(event, template) {
     event.preventDefault();
-    if ( Session.get(this.title) > 0) {
       //https://github.com/mizzao/meteor-timesync
       //https://forums.meteor.com/t/createdat-and-documents/6627/14
-    var reservation = {
-      title: this.title,
-      owner: Meteor.userId(),
-      username: Meteor.user().username,
-      user: Meteor.user(),
-      datestart: Session.get('StartDate'),
-      dateend: Session.get('EndDate'),
-      timestamp: new Date(),
-    }
-    console.log(reservation, this._id,Meteor.user())
-    Meteor.call('reservations.insert', reservation,/* for mail Meteor.user().emails[0].address */);
-  } else {alert("room at max capacity")}
+
+    var alert = template.find('#alert');
+    $(alert).hide();
+    Meteor.call('reservations.insert', /* for mail Meteor.user().emails[0].address */ function (error, result)
+      {
+          if (error) {
+            //return throwError(error.reason);
+            $(alert).show()
+            $(alert).html(error.error)
+          } else {
+            // success
+          }
+        });
   },
   'click .delete'() {
     var a = confirm("Are you trying to delete a room?")
     var b = confirm("think again, really?")
     if (a == true) {if (b == true){Meteor.call('rooms.remove', this._id, Meteor.user());}}
-
   },
 });
 

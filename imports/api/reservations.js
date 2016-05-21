@@ -33,13 +33,22 @@ console.log("MethodsLog//", x, room);
     return room.amount - x
   },
 
-  'reservations.insert'(reservation) {
-
+  'reservations.insert'() {
     if (! this.userId) {
-      throw new Meteor.Error('not-authorized');
-      console.log("fail")
+      throw new Meteor.Error('You must login first');
     }
-
+    if (!(Session.get(reservation.title) > 0)) {
+      throw new Meteor.Error('Rooms are at capacity');
+    }
+    var reservation = {
+      title: this.title,
+      owner: Meteor.userId(),
+      username: Meteor.user().username,
+      user: Meteor.user(),
+      datestart: Session.get('StartDate'),
+      dateend: Session.get('EndDate'),
+      timestamp: new Date(),
+    }
     Reservations.insert(reservation) //maybe session get datestart
   //    timestamp:date
 
