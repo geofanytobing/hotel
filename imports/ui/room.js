@@ -31,7 +31,10 @@ Template.room.events({
   } else {alert("room at max capacity")}
   },
   'click .delete'() {
-    Meteor.call('rooms.remove', this._id, Meteor.user());
+    var a = confirm("Are you trying to delete a room?")
+    var b = confirm("think again, really?")
+    if (a == true) {if (b == true){Meteor.call('rooms.remove', this._id, Meteor.user());}}
+
   },
 });
 

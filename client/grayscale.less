@@ -76,12 +76,13 @@ background: black;
 
 
 .navbar-custom {
+  position:absolute;
   z-index: 155;
     margin-bottom: 0;
     border-bottom: 1px solid fade(white, 30%);
     text-transform: uppercase;
     font-family: "Montserrat","Helvetica Neue",Helvetica,Arial,sans-serif;
-    background-color: black;
+    background-color: transparent;
     .navbar-toggle {
         padding: 4px 6px;
         font-size: 16px;
@@ -179,49 +180,19 @@ background: black;
 #datepicker {
   z-index: 54;
 }
-.intro {
 
-    display: table;
-    width: 100%;
-    height: auto;
-    padding: 100px 0;
-    text-align: center;
-    color: white;
-    background: url(../cover.jpg) no-repeat bottom center scroll;
-    background-color: black;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
-    .intro-body {
-        display: table-cell;
-        vertical-align: middle;
-        .brand-heading {
-            font-size: 40px;
-        }
-        .intro-text {
-            font-size: 18px;
-        }
-    }
-    @media(min-width:768px) {
-        height: 100%;
-        padding: 0;
-        .intro-body {
-            .brand-heading {
-                font-size: 100px;
-            }
-            .intro-text {
-                font-size: 26px;
-            }
-        }
-    }
+.cover > .navbar {
+  brightness: 100%
 }
-
-
 .cover {
-  display: block;
-
+  width: 100%;
+  height: 500px;
   position: relative;
+}
+.cover:before {
+  display: block;
+  content: '';
+  position: absolute;
   width: 100%;
   height: 500px;
   color: #fff;
