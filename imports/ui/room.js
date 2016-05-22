@@ -22,7 +22,7 @@ Template.room.events({
     Meteor.call('reservations.insert', /* for mail Meteor.user().emails[0].address */ function (error, result)
       {
           if (error) {
-            //return throwError(error.reason);
+            //return throwError(error.reason); we
             $(alert).show()
             $(alert).html(error.error)
           } else {
