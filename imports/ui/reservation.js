@@ -10,6 +10,7 @@ import './reservation.html';
 Template.reservation.onCreated(function reservationOnCreated() {
   Meteor.subscribe('reservations');
 //  this.counter = new ReactiveVar(0);
+
 });
 
 Template.reservation.helpers({
@@ -26,7 +27,7 @@ startdate () {
 enddate () {
   var a = moment(new Date(this.dateend)).format("DD-MMM-YY")
   return a
-}
+},
 });
 
 /*

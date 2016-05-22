@@ -54,6 +54,11 @@ Template.body.helpers({
   //} else if (Reservations.find().count() !== 0) {return Reservations.find({dateend: {$gte: bull}, datestart: {$lte: foo}}, {sort: sort_order })}
 //  else {return null/*"Your booking details and controls with hotel details will be mailed to you upon reservation"*/}
   },
+  empty () {
+    if (Reservations.find().count() == 0) {
+      return "Your booking details and controls with hotel details will be mailed to you upon reservation";
+    }
+  }
 });
 
 console.log(asdf)
