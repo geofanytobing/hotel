@@ -9,7 +9,7 @@
                       <i class="fa fa-bars"></i>
                   </button>
                   <a class="navbar-brand page-scroll" href="#page-top">
-                      <i src="logo.jpg"></i>  <span class="light">{{_ "hotel"}}</span> Jasmin
+                      <span class="light">{{_ "hotel"}}</span> Jasmin
                   </a>
               </div>
 
@@ -21,7 +21,7 @@
                           <a href="#page-top"></a>
                       </li>
                       <li> <a>{{> i18nSelector }}</a></li>
-                      <li> <a>{{> loginButtons}}</a> </li>
+                      <li> <a class="{{errorClass 'login'}}}">{{> loginButtons}}</a> </li>
                       <li>
                           <a class="page-scroll" href="#about">{{_ "about"}}</a>
                       </li>

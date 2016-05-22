@@ -2,7 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import { Rooms } from '../api/rooms.js';
 import { Reservations } from '../api/reservations.js';
-
+//import { Errors } from '
 import './room.html';
 
 Template.room.onCreated(function () {
@@ -17,14 +17,24 @@ Template.room.events({
       //https://github.com/mizzao/meteor-timesync
       //https://forums.meteor.com/t/createdat-and-documents/6627/14
 
-    var alert = template.find('#alert');
-    $(alert).hide();
+    //var alert = template.find('#alert');
+    //$(alert).hide();
+    var booking = {
+      start: Session.get("StartDate"),
+      end: Session.get("EndDate"),
+      login: this.userId
+    };
+
+    var errors = validateBooking(booking);
+    if (errors.start || errors.end || errors.login)
+      return Session.set('Errors', errors);
+
     Meteor.call('reservations.insert', /* for mail Meteor.user().emails[0].address */ function (error, result)
       {
           if (error) {
-            //return throwError(error.reason); we
-            $(alert).show()
-            $(alert).html(error.error)
+            return throwError(error.reason);
+          //  $(alert).show()
+          //  $(alert).html(error.error)
           } else {
             // success
           }
@@ -49,6 +59,7 @@ Template.room.helpers({
     })
     return Session.get(title)
   },
+
     //Session variables from calendar are global
     //find array of availability
 /*    var foo = Session.get("EndDate")

@@ -19,6 +19,17 @@ if (Meteor.isServer) {
   });
 };
 
+validateBooking = function (booking) {
+  var errors = {};
+  if (!booking.login)
+    errors.login = "You're not logged in";
+  if (!booking.start)
+    errors.start = "Select starting date of reservation.";
+  if (!booking.end)
+    errors.end = "Select starting date of reservation.";
+  return errors;
+}
+
 Meteor.methods({
   //https://github.com/meteor/validated-method
   'rooms.grid' (room, foo, bull) {
@@ -34,7 +45,9 @@ console.log("MethodsLog//", x, room);
   },
 
   'reservations.insert'() {
-    if (! this.userId) {
+    var errors = {}
+    if (!this.userId) {
+      console.log("fired")
       throw new Meteor.Error('You must login first');
     }
     if (!(Session.get(reservation.title) > 0)) {

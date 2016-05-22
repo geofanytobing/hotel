@@ -1,6 +1,9 @@
 import { Template } from 'meteor/templating';
 import { Rooms } from '../api/rooms.js';
 
+Template.calendar.onCreated(function() {
+  Session.set('Errors', {});
+});
 
 import './calendar.html';
 //http://eternicode.github.io/bootstrap-datepicker/?markup=range&format=&weekStart=&startDate=&endDate=&startView=0&minViewMode=0&maxViewMode=2&todayBtn=false&clearBtn=false&language=en&orientation=auto&multidate=&multidateSeparator=&keyboardNavigation=on&forceParse=on#sandbox
@@ -73,5 +76,14 @@ Template.calendar.events ({
     Session.set( "EndDate", stuff)
   //  var consoleitem = Session.get("CurrentDate")
   //  console.log(consoleitem)
+  }
+});
+
+Template.calendar.helpers({
+  errorMessage (field) {
+    return Session.get('Errors')[field];
+  },
+  errorClass (field) {
+    return !!Session.get('Errors')[field] ? 'has-error' : '';
   }
 });

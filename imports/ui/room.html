@@ -1,10 +1,8 @@
 <template name="room">
 <li>
-  <div id='alert' style='display:none;'></div>
-  <span class="text"><strong>{{title}}</strong> - {{_ "amount"}}: {{amount}} {{_ "available"}}: {{counter}}</span>
-  <p>
+<!--  <div id='alert' style='display:none;'></div> -->
+  <span class="text">Type: <strong>{{title}}</strong> - {{_ "amount"}}: {{amount}} {{_ "available"}}: {{counter}}</span>
   {{#if isInRole 'admin'}} <button class="delete">&times;</button> {{/if}}
   <button class="make btn btn-primary btn-xs"> {{_ "reserve"}} </button>
-</p>
 </li>
 </template>
