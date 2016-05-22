@@ -81,6 +81,14 @@ background: black;
   bottom: 0px;
   pointer-events: none;
 }
+
+@keyframes fadeOut {
+  0% {opacity: 0;}
+  10% {opacity: 1;}
+  90% {opacity: 1;}
+  100% {opacity: 0;}
+}
+
 .alert {
           animation: fadeOut 2700ms ease-in 0s 1 forwards;
   -webkit-animation: fadeOut 2700ms ease-in 0s 1 forwards;
@@ -308,8 +316,8 @@ z-index: 50;
 }
 
 .plus {
-  left: 45%;
-  top: 40%;
+    left: 45%;
+    top: 40%;
   display: none;
   position: absolute;
 }

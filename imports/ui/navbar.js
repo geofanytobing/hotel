@@ -2,6 +2,17 @@
 import "./navbar.html";
 import "./i18nSelector.js";
 
+Template.navbar.onCreated(function() {
+  Session.set('Errors', {});
+});
+
+Template.navbar.helpers({
+  errorClass (field) {
+    return !!Session.get('Errors')[field] ? 'has-error' : '';
+  }
+});
+
+
 
     Template.navbar.onRendered(function() {
         var template = this;

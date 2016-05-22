@@ -1,10 +1,12 @@
 <template name="calendar">
 
   <div class="input-group input-daterange" id="datepicker">
-      <input type="text" class="form-control" id="datestart">
+      <input type="text" class="form-control {{errorClass 'start'}}" id="datestart">
       <span class="input-group-addon">to</span>
-      <input type="text" class="form-control" id="dateend">
+      <input type="text" class="form-control {{errorClass 'end'}}" id="dateend">
   </div>
+  <span class="help-block">{{errorMessage 'start'}}</span>
+  <span class="help-block">{{errorMessage 'end'}}</span>
 <!--
 <div class="range">
     <div class="range-start" id="datestart"> </div>
